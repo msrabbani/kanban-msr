@@ -3,7 +3,7 @@
   <div class="home">
     <Navbar/>
     <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create Task</button>
 
   <!-- Modal -->
   <div id="myModal" class="modal fade" role="dialog">
@@ -48,8 +48,8 @@
 
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
-        <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary" @click="addTask">Submit</button>
+        <button type="reset" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" @click="addTask">Submit</button>
       </div>
     </div>
   </fieldset>
