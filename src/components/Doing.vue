@@ -1,12 +1,12 @@
 <template lang="html">
 	<div class="backtodo">
-    <div class="panel panel-danger">
+    <div class="panel panel-warning">
       <div class="panel-heading">
         <h3 class="panel-title">Doing</h3>
       </div>
       <div class="panel-body">
 
-				<div class="panel panel-danger" v-for="task in doing">
+				<div class="panel panel-warning" v-for="task in doing">
 		      <div class="panel-heading" >
 		        <h3 class="panel-title">{{task.title}}</h3>
 		      </div>
@@ -16,7 +16,7 @@
 						<p>Assign to: {{task.assignto}}</p>
 		      </div>
 					<div class="panel-footer">
-						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#doingModal" @click="getData(task)">Detail</button>
+						<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#doingModal" @click="getData(task)">Detail</button>
 					</div>
 		    </div>
 

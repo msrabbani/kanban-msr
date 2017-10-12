@@ -1,12 +1,12 @@
 <template lang="html">
 	<div class="backtodo">
-    <div class="panel panel-danger">
+    <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title">Done</h3>
       </div>
       <div class="panel-body">
 
-				<div class="panel panel-danger" v-for="task in done">
+				<div class="panel panel-success" v-for="task in done">
 		      <div class="panel-heading" >
 		        <h3 class="panel-title">{{task.title}}</h3>
 		      </div>
@@ -16,7 +16,7 @@
 						<p>Assign to: {{task.assignto}}</p>
 		      </div>
 					<div class="panel-footer">
-						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#doneModal" @click="getData(task)">Detail</button>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#doneModal" @click="getData(task)">Detail</button>
 					</div>
 		    </div>
 
@@ -37,8 +37,7 @@
 				      </div>
 				      <div class="modal-footer">
 								<button type="button" class="btn btn-info" data-dismiss="modal" @click="goDoing(alltask)">Doing</button>
-				        <button type="button" class="btn btn-warning" data-dismiss="modal" @click="deleteData(alltask['.key'])">Delete</button>
-								<button type="button" class="btn btn-info" data-dismiss="modal" @click="goTodo(alltask)">Todo</button>
+				        <button type="button" class="btn btn-warning" data-dismiss="modal" @click="deleteData(alltask['.key'])">Task Done</button>
 				      </div>
 				    </div>
       </div>
@@ -70,16 +69,6 @@ export default {
     },
     deleteData (todo) {
       this.$db.ref(`/task/todo/${todo}`).remove()
-    },
-    goTodo (task) {
-      this.$db.ref(`/task/todo/${task['.key']}`).remove()
-      this.$db.ref(`/task/done`).push({
-        assignto: task.assignto,
-        description: task.description,
-        point: task.point,
-        status: task.status,
-        title: task.title
-      })
     },
     goDoing (task) {
       this.$db.ref(`/task/done/${task['.key']}`).remove()
